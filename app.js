@@ -81,7 +81,7 @@ app.post('/sign_up', async (req,res)=>{
 	    console.log("1 record inserted");
   	});
 	res.redirect('/');
-	}catch{
+	}catch(err){
 		console.log("error in sign up");
 	}
 });
