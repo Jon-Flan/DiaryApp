@@ -1,6 +1,6 @@
 				<% include ../partials/header %>
 
-				<form accept-charset="UTF-8" action='/edit_entry/<%= results[0].entry_ID %>' method='post' id="entryForm">
+				<form accept-charset="UTF-8" action='/edit_entry/<%= results[0].entry_ID %>' method='post' id="entryForm" onsubmit="return verify()">
 				<h2>Edit Entry</h2>  <!-- welcome text just under the avatar -->
 				<p>Entry from: <%= results[0].entry_date.toDateString() %> </p>
 

@@ -177,7 +177,7 @@ app.post('/profile', function(req,res){
 	var name = req.body.fName;
 	var age = req.body.age;
 	var about = req.body.about;
-	console.log(about);
+
 	//check if the user is already logged in and redirect to the correct page
 	if(req.session.loggedin){
 		//connect to the databse and update the correct values
@@ -210,7 +210,7 @@ app.get('/diaryPages', function(req,res){
 })
 
 
-//routes to add workouts
+//routes to add entry
 app.get('/add_entry', function(req,res){
 	//check if the user is already logged in and redirect to the correct page
 	if(req.session.loggedin){
@@ -298,15 +298,17 @@ app.get('/delete_entry/:entry_ID', function(req, res) {
 app.get('/deleteProfile', function(req, res) {
 	//check if the user is already logged in and redirect to the correct page
 	if(req.session.loggedin){
+		var user = req.session.username;
 		//connect to the databse and delete the users profile and log them out
-		connection.query("DELETE FROM User_tbl WHERE user_ID = ?;", [req.session.username], function(error,results, fields){
-		req.session.destroy();
+		connection.query("DELETE FROM User_tbl WHERE user_id = ?;", user, function(error,results, fields){
 		res.redirect('/');
 	})
 	}else{
-		res.redirect('/');
+		//res.redirect('/');
+		console.log("error delting profile");
 		res.end();	
 	}
+	req.session.destroy();
 });
 
 //logout feature to destroy session and redirect to login page
