@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+
+<!--All content for diary entries page goes here-->
+<!--This is where we will make the buttons and the cards that will display the information-->
+<div id="content">
+<div class="addBtn">
+    <button type="submit" class="btn" value="Add" ><h3 class="btnText" onclick="window.location.href='/add_entry';">Add Entry</h3></button>  <!-- submit button, added as an input but styled and used as button -->
+</div>
+<!--for each result we loop through a new card is created and displayed -->
+<%results.forEach(function(results){ %>
+   <div class="landing-grid1">
+            <Cell col={12}>
+                <div class="banner-text1">
+                    <h1>Diary Entry</h1>
+                    <p>Date: <%= results.entry_date.toDateString() %> </p>
+
+                    <hr/>
+
+                    <p> Title: <%= results.entry_title %></p>
+                    <br/>
+                    <p> <%= results.entry %> </p>
+                </div>
+                <div> 
+                    <br/>
+                   <button type= "button" class="btn1" value="Edit" ><h3 class="btnText" onclick="window.location.href='/edit_entry/<%= results.entry_ID %>';">Edit</h3></button> 
+   
+                   <button type= "button" class="btn1" value="Delete"><h3 class="btnText" onclick="window.location.href='/delete_entry/<%= results.entry_ID %>';">Delete</h3></button> 
+                </div>
+            </Cell>     
+</div>
+<% }); %>
+
+<% include ../partials/footerLogin %>

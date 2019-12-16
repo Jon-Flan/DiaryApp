@@ -1,0 +1,37 @@
+<% include ../partials/header %>
+
+<!--All content for home profile page goes here-->
+<!--This is where we will make the buttons and the cards that will display the information-->
+<form accept-charset="UTF-8">
+    <div class="landing-grid">
+        <Cell col={12}>
+            <img class= "avatar" src="/loginAvatar.svg"/>
+              <div class="banner-text">
+                  <h1>Welcome <%= results[0].name %> </h1>
+
+                  <hr/>
+                 
+                 <p> About me</p> 
+                 <p> Age: <%= results[0].age %></p>
+                 <p><%= results[0].about_me %></p>
+             </div>
+               <div class="edBtn"> 
+                  <br/>
+                   <button type= "button" class="btn" value="Edit Profile" onclick="window.location.href='/profile';" ><h3 class="btnText">Edit Profile</h3></button> 
+              </div>
+              <div class="edBtn"> 
+                  <br/>
+                   <button type= "button" class="btn" value="Edit Profile" onclick="deleteProfile()" ><h3 class="btnText">Delete Profile</h3></button> 
+              </div>
+            </Cell>  
+  </div>
+  <!--function to confirm if the user wants to delete their profile, just incase they accidently press the button -->
+  <script>
+    function deleteProfile(){
+      if(confirm("Are you sure you wish to delete your profile?")){
+        confirm = window.location.href="/deleteProfile";
+      }
+    }
+  </script>
+               
+<% include ../partials/footerLogin %>

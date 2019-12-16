@@ -1,0 +1,44 @@
+				<% include ../partials/header %>
+				<form name="entryForm" accept-charset="UTF-8" action='/add_entry' method='post' id="entryForm" onsubmit="return verify()">
+				<h2>Diary Entry</h2>  <!-- welcome text just under the avatar -->
+
+				<div class="input-div one">  <!-- div container for everything to do with the title input -->
+					<div class="i">  <!-- div to hold the fontawesome graphic -->
+						<i class="fa fa-user"></i>  <!--font awesome graphic -->
+					</div>
+					<div>  <!-- div just for the Title input and an error msg if title is incorrect-->
+						<h5>Title</h5>  <!--Title heading (will be animated) -->
+						<input class="input" type="text" name="title" id="title">  <!-- input space for the name -->	
+					</div>
+				</div>
+
+					<div class="entryText">  <!-- div just for the Entry input and an error msg if entry is incorrect -->
+						<h5>Entry</h5>  
+						<textarea type="text" name="entry" id="entry" rows="10" cols="30" form="entryForm" maxlength="500"></textarea>  <!-- input space for the age	-->
+					</div>
+				
+
+				<br>  <!-- page break to give some visual space between the password section and the forgot/signup section-->
+				
+				<button type="submit" class="btn" value="Finish" ><h3 class="btnText">Finish</h3></button>  <!-- submit button, added as an input but styled and used as button -->
+				</form>
+
+				<script>
+					//functoion for verifying what is entered in to the form
+				function verify(){
+					var x = document.forms["entryForm"]["title"].value;
+					var y = document.forms["entryForm"]["entry"].value;
+					if(x == "" || y == ""){
+						alert("Title and Entry must be filled in");
+						return false;
+					}
+				}
+					
+				</script>
+
+
+
+				<% include ../partials/footerLogin %>
+
+
+

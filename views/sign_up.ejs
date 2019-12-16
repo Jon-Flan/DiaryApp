@@ -1,0 +1,119 @@
+				<% include ../partials/headerLogin %>
+				<form name="signupForm" accept-charset="UTF-8" action='/sign_up' method='post' onsubmit="return verify()">
+				<h2>Sign Up</h2>  <!-- welcome text just under the avatar -->
+
+
+				<div class="input-div one">  <!-- div container for everything to do with the username input -->
+					<div class="i">  <!-- div to hold the fontawesome graphic -->
+						<i class="fa fa-user"></i>  <!--font awesome graphic -->
+					</div>
+					<div>  <!-- div just for the username input and an error msg if username is incorrect-->
+						<h5>Username</h5>  <!--Username heading (will be animated) -->
+						<input class="input" type="text" name="username" id="username">  <!-- input space for the username -->	
+					</div>
+				</div>
+
+
+				<div class="input-div one">  <!-- div container for everything to do with the email input -->
+					<div class="i">  <!-- div to hold the fontawesome graphic -->
+						<i class="fa fa-user"></i>  <!--font awesome graphic -->
+					</div>
+					<div>  <!-- div just for the email input and an error msg if email is incorrect-->
+						<h5>Email</h5>  <!--Username heading (will be animated) -->
+						<input class="input" type="email" name="email" id="email">  <!-- input space for the email -->	
+					</div>
+				</div>
+
+
+
+				<div class="input-div one">  <!-- div container for everything to do with the confirm email input -->
+					<div class="i">  <!-- div to hold the fontawesome graphic -->
+						<i class="fa fa-user"></i>  <!--font awesome graphic -->
+					</div>
+					<div>  <!-- div just for the confirm email input and an error msg if email is incorrect-->
+						<h5>Confirm Email</h5>  <!--Username heading (will be animated) -->
+						<input class="input" type="email" name="emailConfirm" id="emailConfirm">  <!-- input space for the email -->	
+					</div>
+				</div>
+
+
+
+				<div class="input-div two">  <!-- div container for everything to do with the password input -->
+					<div class="i">  <!-- div to hold the fontawesome graphic  -->
+						<i class="fa fa-lock"></i>  <!-- font awesome graphic  -->
+					</div>
+					<div>  <!-- div just for the password input and an error msg if password is incorrect -->
+						<h5>Password</h5>  <!-- -->
+						<input class="input" type="password" name="password" id="password">  <!-- input space for the password -->	
+					</div>
+				</div>
+
+
+				<div class="input-div two">  <!-- div container for everything to do with the confrim password input -->
+					<div class="i">  <!-- div to hold the fontawesome graphic  -->
+						<i class="fa fa-lock"></i>  <!-- font awesome graphic  -->
+					</div>
+					<div>  <!-- div just for the password input and an error msg if password is incorrect -->
+						<h5>Confirm Password</h5>  <!-- -->
+						<input class="input" type="password" name="" id="passwordConfirm">  <!-- input space for the password -->	
+					</div>
+				</div>
+
+				<div class="input-div one">  <!-- div container for everything to do with the profile details input -->
+					<div class="i">  <!-- div to hold the fontawesome graphic -->
+						<i class="fa fa-user"></i>  <!--font awesome graphic -->
+					</div>
+					<div>  <!-- div just for the name input and an error msg if Name is incorrect-->
+						<h5>Name</h5>  <!--Name heading (will be animated) -->
+						<input class="input" type="text" name="fName" id="fName">  <!-- input space for the name -->	
+					</div>
+				</div>
+
+				<div class="input-div one">  <!-- div container for everything to do with the age input -->
+					<div class="i">  <!-- div to hold the fontawesome graphic -->
+						<i class="fa fa-user"></i>  <!--font awesome graphic -->
+					</div>
+					<div>  <!-- div just for the age input and an error msg if age is incorrect-->
+						<h5>Age</h5>  <!--age heading (will be animated) -->
+						<input class="input" type="number" name="age" id="age">  <!-- input space for the age -->	
+					</div>
+				</div>
+
+				<br>  <!-- page break to give some visual space between the password section and the forgot/signup section-->
+				
+				<button type="submit" class="btn" value="Sign Up" ><h3 class="btnText">Sign Up</h3></button>  <!-- submit button, added as an input but styled and used as button -->
+				</form>
+
+				<script>
+				//functoion for verifying what is entered in to the form
+				function verify(){
+					var x = document.forms["signupForm"]["username"].value;
+					var y = document.forms["signupForm"]["email"].value;
+					var z = document.forms["signupForm"]["emailConfirm"].value;
+					var l = document.forms["signupForm"]["password"].value;
+					var m = document.forms["signupForm"]["passwordConfirm"].value;
+					var n = document.forms["signupForm"]["fName"].value;
+					var o = document.forms["signupForm"]["age"].value;
+
+					if(x == "" || y == "" || z == "" || l == "" || m == "" || n == "" || o == ""){
+						alert("All fields must be filled in");
+						return false;
+					}else if( y!== z){
+						alert("Emails do not match");
+						return false;
+					}else if(l !== m){
+						alert("Passwords do not match");
+						return false;
+					}
+
+
+				}
+					
+				</script>
+				<% include ../partials/footerLogin %>
+
+
+
+
+
+				

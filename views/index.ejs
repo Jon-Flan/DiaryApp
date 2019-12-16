@@ -1,0 +1,42 @@
+				<% include ../partials/headerLogin %>
+				<form name="loginForm" accept-charset="UTF-8" action='/sign_in' method='post' onsubmit="return verify()">  <!-- form for the username and password-->
+				<img class= "avatar" src="/loginAvatar.svg">  <!-- avatar style img in the login form -->
+				<h2>Welcome</h2>  <!-- welcome text just under the avatar -->
+				<div class="input-div one">  <!-- div container for everything to do with the username input -->
+					<div class="i">  <!-- div to hold the fontawesome graphic -->
+						<i class="fa fa-user"></i>  <!--font awesome graphic -->
+					</div>
+					<div>  <!-- div just for the username input and an error msg if username is incorrect-->
+						<h5 id="alert1">Email</h5>  <!--Username heading (will be animated) -->
+						<input class="input" type="email" name="email" id="email">  <!-- input space for the username -->	
+					</div>
+				</div>
+				<div class="input-div two">  <!-- div container for everything to do with the password input -->
+					<div class="i">  <!-- div to hold the fontawesome graphic  -->
+						<i class="fa fa-lock"></i>  <!-- font awesome graphic  -->
+					</div>
+					<div>  <!-- div just for the password input and an error msg if username is incorrect -->
+						<h5>Password</h5>  <!-- -->
+						<input class="input" type="password" name="password" id="password">  <!-- input space for the password -->	
+					</div>
+				</div>
+				<br>  <!-- page break to give some visual space between the password section and the forgot/signup section-->
+				<a href="/sign_up" style="text-align: left"> Sign Up</a>  <!-- SignUp link, styled here because main a style places forgot password to the right -->
+				<a href="#"></a>  <!-- Forgot password link (may add one later)-->
+				<button type="submit" class="btn" value="Sign In" ><h3 class="btnText">Sign In</h3></button>  <!-- submit button, added as an input but styled and used as button -->
+				</form>
+
+				<script>
+				//functoion for verifying what is entered in to the form
+				function verify(){
+					var x = document.forms["loginForm"]["email"].value;
+					var y = document.forms["loginForm"]["password"].value;
+					if(x == "" || y == ""){
+						alert("Email and Password must be filled in");
+						return false;
+					}
+				}
+					
+				</script>
+				<% include ../partials/footerLogin %>
+

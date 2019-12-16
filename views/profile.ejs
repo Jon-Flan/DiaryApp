@@ -1,0 +1,37 @@
+				<% include ../partials/header %>
+				<form name="editP" accept-charset="UTF-8" action='/profile' method='post' id="editP">
+				<h2>Edit Profile</h2>  <!-- welcome text just under the avatar -->
+
+				<div class="input-div one">  <!-- div container for everything to do with the profile input -->
+					<div class="i">  <!-- div to hold the fontawesome graphic -->
+						<i class="fa fa-user"></i>  <!--font awesome graphic -->
+					</div>
+					<div>  <!-- div just for the name input and an error msg if fName is incorrect-->
+						<input class="input" type="text" name="fName" id="fName" value="<%= results[0].name %>">  <!-- input space for the name -->	
+					</div>
+				</div>
+
+				<div class="input-div one">  <!-- div container for everything to do with the age input -->
+					<div class="i">  <!-- div to hold the fontawesome graphic -->
+						<i class="fa fa-user"></i>  <!--font awesome graphic -->
+					</div>
+					<div>  <!-- div just for the age input and an error msg if age is incorrect-->
+						<input class="input" type="number" name="age" id="age" value="<%= results[0].age %>">  <!-- input space for the age -->	
+					</div>
+				</div>
+
+				<div class="entryText">  <!-- div just for the Entry input and an error msg if entry is incorrect -->
+						<h5>About me</h5>  
+						<textarea type="text" name="about" id="about" rows="10" cols="30" form="editP" maxlength="500"></textarea>  <!-- input space for the age	-->
+					</div>
+
+
+				<br>  <!-- page break to give some visual space between the password section and the forgot/signup section-->
+				
+				<button type="submit" class="btn" value="Finish" ><h3 class="btnText">Finish</h3></button>  <!-- submit button, added as an input but styled and used as button -->
+				</form>
+
+				<% include ../partials/footerLogin %>
+
+
+
